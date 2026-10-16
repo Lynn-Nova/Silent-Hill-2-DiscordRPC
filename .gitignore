@@ -1,0 +1,6 @@
+/build/
+/release/
+*.log
+*.log.previous
+*.zip
+.vs/

@@ -1,0 +1,30 @@
+name: Build and test native mod
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build and test
+        shell: pwsh
+        run: ./scripts/build.ps1
+      - name: Package mod with verified ASI loader
+        shell: pwsh
+        run: ./scripts/package.ps1
+      - name: Test actual ASI loader lifecycle
+        shell: pwsh
+        run: python ./tests/loader_lifecycle.py ./build/Release/SHProto-Win64-Shipping.exe ./build/Release/SH2DiscordPresence.asi ./build/loader-v9.7.4/dinput8.dll
+      - uses: actions/upload-artifact@v7
+        with:
+          name: SH2DiscordPresence-win64
+          path: |
+            release/SH2DiscordPresence-0.1.3-win64.zip
+            release/SH2DiscordPresence-0.1.3-win64.zip.sha256

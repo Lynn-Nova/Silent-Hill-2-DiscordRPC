@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "application_id": "1560708389796061245",
+  "poll_interval_seconds": 2,
+  "discord_pipe": -1,
+  "default_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2124490/header.jpg",
+  "image_rules": []
+}
