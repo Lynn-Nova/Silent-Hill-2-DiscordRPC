@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
-project(SilentHill2DiscordPresence VERSION 0.1.3 LANGUAGES CXX)
+project(SilentHill2DiscordPresence VERSION 0.1.5 LANGUAGES CXX)
 
 if(NOT WIN32 OR NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
     message(FATAL_ERROR "This mod requires Windows x64.")
@@ -23,7 +23,7 @@ set_target_properties(SH2DiscordPresence PROPERTIES PREFIX "" SUFFIX ".asi")
 enable_testing()
 add_executable(core_tests tests/core_tests.cpp)
 target_link_libraries(core_tests PRIVATE presence_core)
-add_test(NAME core COMMAND core_tests)
+add_test(NAME core COMMAND core_tests "${CMAKE_CURRENT_SOURCE_DIR}/config/SH2DiscordPresence.json")
 
 add_executable(ipc_test_client tests/ipc_client.cpp)
 target_link_libraries(ipc_test_client PRIVATE presence_windows)
@@ -45,6 +45,7 @@ endif()
 
 find_package(Python3 COMPONENTS Interpreter)
 if(Python3_FOUND)
+    add_test(NAME artwork_files COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/artwork_files.py)
     add_test(NAME local_steam COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/local_steam_tests.py $<TARGET_FILE:steam_reader_test> $<TARGET_FILE:steam_api_stub>)
     add_test(NAME ipc COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/ipc_tests.py $<TARGET_FILE:ipc_test_client>)
     add_test(NAME mod_lifecycle COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/mod_lifecycle.py $<TARGET_FILE:mod_test_host> $<TARGET_FILE:SH2DiscordPresence>)

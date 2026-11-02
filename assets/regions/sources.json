@@ -1,0 +1,66 @@
+{
+  "copyright": "Konami Digital Entertainment. Game imagery is not covered by the mod's MIT license.",
+  "reviewed_on": "2026-11-01",
+  "selection": "Environment-only images, visually reviewed without visible characters, enemies or gameplay HUD. Not the original save-menu thumbnails.",
+  "guidelines": "https://www.konami.com/games/silenthill/2r/guideline/jp/ja/",
+  "image_base": "https://raw.githubusercontent.com/Lynn-Nova/Silent-Hill-2-DiscordRPC/main/assets/regions/",
+  "images": [
+    {
+      "file": "eastern-south-vale.jpg",
+      "kind": "screenshot",
+      "source_page": "https://www.konami.com/games/silenthill/2r/guideline/jp/ja/available",
+      "source_url": "https://www.konami.com/games/silenthill/2r/s/img/guideline/available_sh2_ss_5.jpg",
+      "sha256": "f1753c01b1e13b3e6e235e3c8ddc4db32da168618bc2f1ba16d5cf5b39486c7d"
+    },
+    {
+      "file": "wood-side-apartments.jpg",
+      "kind": "concept_art",
+      "source_page": "https://www.silenthillmemories.net/sh2_remake/art_en.htm",
+      "source_url": "https://www.silenthillmemories.net/sh2_remake/art/pics/environment_02_wood_side_apartments_15.jpg",
+      "sha256": "93b0bfe546c0954b86de68c61b9a6792c6d4d876710fd077c5db456bc5f6c3b4"
+    },
+    {
+      "file": "blue-creek-apartments.jpg",
+      "kind": "concept_art",
+      "source_page": "https://www.silenthillmemories.net/sh2_remake/art_en.htm",
+      "source_url": "https://www.silenthillmemories.net/sh2_remake/art/pics/environment_03_blue_creek_apartments_12.jpg",
+      "sha256": "8f5f2c4394004e444f6a6b6df81c7971e2753821ffde002d9b88662a6e1b8ec3"
+    },
+    {
+      "file": "brookhaven-hospital.jpg",
+      "kind": "concept_art",
+      "source_page": "https://www.silenthillmemories.net/sh2_remake/art_en.htm",
+      "source_url": "https://www.silenthillmemories.net/sh2_remake/art/pics/environment_05_brookhaven_hospital_03.jpg",
+      "sha256": "dba3bd6d7e73773c04d3dc51022ace01c6a135b47b55f69ae622e07e8b2f50ea"
+    },
+    {
+      "file": "toluca-prison.jpg",
+      "kind": "screenshot",
+      "source_page": "https://www.silenthillmemories.net/sh2_remake/screenshots_en.htm",
+      "source_url": "https://www.silenthillmemories.net/sh2_remake/screenshots/pics/silent_hill_2_remake_37_toluca_prison.jpg",
+      "sha256": "e328b78a6de93c2a6b0eb2c2452856d705ed76caa6b56691eccfff505dcbfd1e"
+    },
+    {
+      "file": "labyrinth.webp",
+      "kind": "concept_art",
+      "artist_credit": "Aneta Bielas; original signature and credits retained in the image.",
+      "source_page": "https://www.silenthillmemories.net/sh2_remake/art_en.htm",
+      "source_url": "https://www.silenthillmemories.net/sh2_remake/art/pics/environment_10b_labyrinth_center_02.webp",
+      "sha256": "6df3a08ac37b8b6b5693ae082c14a85475f6f4f203d60515da5f68898f33bfc4"
+    },
+    {
+      "file": "lakeview-hotel.jpg",
+      "kind": "screenshot",
+      "source_page": "https://www.silenthillmemories.net/sh2_remake/screenshots_en.htm",
+      "source_url": "https://www.silenthillmemories.net/sh2_remake/screenshots/pics/silent_hill_2_remake_43_lakeview_hotel.jfif",
+      "sha256": "cc04d5801f198e01ef135e6cab08d20c8565ec5aba0a55ddedd4de72a22cc1a6"
+    },
+    {
+      "file": "road-to-silent-hill.jpg",
+      "kind": "concept_art",
+      "source_page": "https://www.silenthillmemories.net/sh2_remake/art_en.htm",
+      "source_url": "https://www.silenthillmemories.net/sh2_remake/art/pics/environment_01f_path_to_silent_hill_02.jpg",
+      "sha256": "b6e6ff534c9ddadd7bdfcc87878a1d190b0f2e2b88a52a4c9e7519d1bcf23206"
+    }
+  ]
+}

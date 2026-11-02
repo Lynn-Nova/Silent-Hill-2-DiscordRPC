@@ -1,6 +1,6 @@
 # Silent Hill 2 Discord Presence
 
-Um mod para levar a **atividade do Silent Hill 2 Remake da Steam para o Discord**. Ele mostra onde você está no jogo, a capa e o tempo da sua sessão.
+Um mod para levar a **atividade do Silent Hill 2 (2024) da Steam para o Discord**. Ele mostra onde você está no jogo, imagens das regiões e o tempo da sua sessão.
 
 É só instalar e abrir o jogo normalmente. Sem outro programa para iniciar e sem janela sobrando na barra de tarefas.
 
@@ -9,7 +9,7 @@ Um mod para levar a **atividade do Silent Hill 2 Remake da Steam para o Discord*
 ## O que aparece no perfil
 
 - A localização ou atividade que o jogo informa à Steam.
-- A capa do jogo, com opção de configurar outras imagens.
+- Imagens das regiões, com a capa como alternativa e opção de configurar outras imagens.
 - O tempo da sessão, sem reiniciar a contagem quando você muda de área.
 
 O mod lê a atividade local a cada dois segundos e usa o status e os identificadores de região para acompanhar sua localização. Diferenças de outro mundo dependem dos dados enviados pelo jogo; o mod não tenta adivinhar pelo progresso.
@@ -18,7 +18,7 @@ O mod lê a atividade local a cada dois segundos e usa o status e os identificad
 
 Você precisa do **Silent Hill 2 (2024) na Steam** e do **Discord para desktop**.
 
-1. Feche o jogo e baixe `SH2DiscordPresence-0.1.3-win64.zip` na seção **Releases** deste repositório. Escolha o ZIP do mod, não o download automático "Source code" do GitHub.
+1. Feche o jogo e baixe `SH2DiscordPresence-0.1.5-win64.zip` na seção **Releases** deste repositório. Escolha o ZIP do mod, não o download automático "Source code" do GitHub.
 2. Na Steam, abra **Silent Hill 2 → Propriedades → Arquivos instalados → Explorar**.
 3. Entre em `SHProto/Binaries/Win64`.
 4. Extraia o ZIP ali, ao lado de `SHProto-Win64-Shipping.exe`. Mantenha também os arquivos de licença que acompanham o pacote.
@@ -32,7 +32,7 @@ Você precisa do **Silent Hill 2 (2024) na Steam** e do **Discord para desktop**
 - **O idioma do RPC é automático.** Se o jogo estiver em português, a presença fica em português. Em inglês ou qualquer outro idioma, o mod traduz a atividade para inglês. A tradução funciona localmente, usando o status e os identificadores de região do jogo, sem serviço externo nem chave de API.
 - **O contador é desta sessão.** Menus e pausas entram na contagem. Não é o tempo do save nem o total de horas da Steam.
 - **Seu perfil da Steam não precisa ser público.** A leitura é local e não exige senha, chave de API ou token do Discord.
-- **A imagem padrão é a capa.** Ainda não há uma coleção de imagens para todas as regiões, mas você pode configurar as suas.
+- **O pacote inclui imagens de regiões.** São oito imagens só dos cenários, incluindo a estrada inicial: três capturas e cinco artes conceituais oficiais, sem personagens ou inimigos visíveis. Não são as miniaturas originais do menu de saves. As subáreas do Labirinto compartilham uma imagem. Menus e locais sem arte própria continuam com a capa. A [coleção de imagens e fontes](assets/regions/README.md), em inglês, detalha a cobertura e a hospedagem.
 
 O mod não altera saves nem executáveis do jogo e encerra junto com ele. Não precisa de UE4SS nem de um programa separado rodando em segundo plano.
 
@@ -73,7 +73,7 @@ Os requisitos completos, testes e detalhes internos estão nas [notas de desenvo
 
 ## Sobre esta versão
 
-A **v0.1.3 é a primeira versão pública, disponibilizada como beta**. Durante o desenvolvimento, a integração do menu e de Blue Creek foi testada com a build Steam **17080069**. A Zona Oeste da Cidade também foi confirmada com o texto de atividade em português. O catálogo tem testes automatizados para os 15 nomes, não uma verificação de todas as áreas dentro do jogo. Outras regiões, transições e combinações com mods ainda precisam de mais testes.
+A **v0.1.5 é uma atualização beta**. Ela troca `Hotel FW` por **Lakeview Hotel**, mantém o hotel do Outro Mundo separado e corrige o espaçamento de **Road To Silent Hill**. Em português, o hotel passa a aparecer como **Hotel Lakeview**, mantendo **Outro Mundo** na versão alterada. As correções de Eastern/Western South Vale e Night City OW também estão incluídas. Esses mapeamentos têm testes automatizados de regressão. Durante o desenvolvimento, a integração do menu e de Blue Creek foi testada com a build Steam **17080069**. A Zona Oeste da Cidade também foi confirmada com o texto de atividade em português. O catálogo tem testes automatizados para os 15 nomes, não uma verificação de todas as áreas dentro do jogo. Outras regiões, transições e combinações com mods ainda precisam de mais testes.
 
 ## Créditos
 
@@ -81,4 +81,4 @@ Criado por **Lynn**, sob a [licença MIT](LICENSE).
 
 O projeto usa [Ultimate ASI Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader) e [nlohmann/json](https://github.com/nlohmann/json). As licenças e os demais avisos estão em [componentes de terceiros](THIRD_PARTY_NOTICES.md).
 
-Este é um projeto de fã, sem vínculo oficial com Konami, Bloober Team, Valve ou Discord. Os nomes e as imagens do jogo pertencem aos respectivos donos. A capa é carregada da Steam e não acompanha os arquivos do mod.
+Este é um projeto de fã, sem vínculo oficial com Konami, Bloober Team, Valve ou Discord. Os nomes e as imagens do jogo pertencem aos respectivos donos. A licença MIT vale para o código, não para as imagens do jogo. As imagens de regiões são carregadas dos arquivos públicos do projeto no GitHub, e a capa usada como alternativa vem da Steam.

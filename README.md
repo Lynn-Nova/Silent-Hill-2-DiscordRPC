@@ -1,6 +1,6 @@
 # Silent Hill 2 Discord Presence
 
-A mod that shows your **Silent Hill 2 (2024) Steam activity on Discord**. It displays your current location, the game's cover art and how long you've been playing this session.
+A mod that shows your **Silent Hill 2 (2024) Steam activity on Discord**. It displays your current location, region artwork and how long you've been playing this session.
 
 Install it once and launch the game as usual. There's no extra app to open or window to leave running.
 
@@ -9,7 +9,7 @@ Install it once and launch the game as usual. There's no extra app to open or wi
 ## What it shows
 
 - The location or activity reported by the game.
-- The game's cover art, with support for custom images.
+- Regional scenery images, with the game's cover as a fallback and support for custom images.
 - A session timer that keeps counting when you change areas.
 
 The mod reads the game's local Steam presence every two seconds and uses its activity and region identifiers to follow your location. Otherworld differences depend on what the game reports; the mod doesn't guess from your progress.
@@ -18,7 +18,7 @@ The mod reads the game's local Steam presence every two seconds and uses its act
 
 You'll need **Silent Hill 2 (2024) on Steam** and the **Discord desktop app**.
 
-1. Close the game and download `SH2DiscordPresence-0.1.3-win64.zip` from this repository's **Releases** section. Choose the mod ZIP, not GitHub's automatic "Source code" download.
+1. Close the game and download `SH2DiscordPresence-0.1.5-win64.zip` from this repository's **Releases** section. Choose the mod ZIP, not GitHub's automatic "Source code" download.
 2. In Steam, open **Silent Hill 2 → Properties → Installed Files → Browse**.
 3. Go to `SHProto/Binaries/Win64`.
 4. Extract the ZIP there, next to `SHProto-Win64-Shipping.exe`. Keep the included license files too.
@@ -32,7 +32,7 @@ You'll need **Silent Hill 2 (2024) on Steam** and the **Discord desktop app**.
 - **The RPC language is automatic.** Play in Portuguese and your presence stays in Portuguese. For English or any other game language, the mod translates the activity into English. This works offline using the game's activity and region identifiers, with no translation service or API key.
 - **The timer is for this session.** It includes menus and pauses, not your save's playtime or total Steam hours.
 - **You don't need a public Steam profile.** The mod reads locally. No Steam API key, password or Discord token is needed.
-- **The default image is the game's cover.** A collection of images for every area isn't included, but you can add your own rules.
+- **Regional artwork is included.** Eight scenery-only images cover selected locations, including the approach road: three screenshots and five official concept artworks, without visible characters or enemies. They are not the original save-menu thumbnails. Labyrinth subareas share one image. Menus and locations without dedicated artwork keep the cover. See the [artwork collection and sources](assets/regions/README.md) for coverage and hosting details.
 
 The mod doesn't edit saves or game executables, and it stops with the game. It doesn't need UE4SS or a separate background program.
 
@@ -73,7 +73,7 @@ The [development notes](docs/DEVELOPMENT.md) cover the full requirements, tests 
 
 ## About this release
 
-**v0.1.3 is the first public release, available as a beta.** During development, the menu and Blue Creek integration were tested with Steam build **17080069**. The western city area was also confirmed with Portuguese activity text. The catalog has automated tests for all 15 names, not an in-game check of every area. Other regions, transitions and combinations with mods still need more testing.
+**v0.1.5 is a beta update.** It replaces `Hotel FW` with **Lakeview Hotel**, keeps the Otherworld hotel separate and fixes the spacing in **Road To Silent Hill**. Portuguese hotel activity now uses **Hotel Lakeview**, with **Outro Mundo** retained for the altered hotel. The Eastern/Western South Vale and Night City OW name corrections are also included. These mappings have automated regression tests. During development, the menu and Blue Creek integration were tested with Steam build **17080069**. The western city area was also confirmed with Portuguese activity text. The catalog has automated tests for all 15 names, not an in-game check of every area. Other regions, transitions and combinations with mods still need more testing.
 
 ## Credits
 
@@ -81,4 +81,4 @@ Created by **Lynn**. Released under the [MIT License](LICENSE).
 
 The project uses [Ultimate ASI Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader) and [nlohmann/json](https://github.com/nlohmann/json). Their licenses and other notices are listed in [third-party notices](THIRD_PARTY_NOTICES.md).
 
-An unofficial fan project, not affiliated with Konami, Bloober Team, Valve or Discord. Game names and artwork belong to their respective owners; the cover image is loaded from Steam, not bundled with the mod.
+An unofficial fan project, not affiliated with Konami, Bloober Team, Valve or Discord. Game names and artwork belong to their respective owners. The code is MIT-licensed; the included game images are not. Regional images are loaded from the project's public GitHub files, and the fallback cover is loaded from Steam.

@@ -27,12 +27,13 @@ foreach ($document in @('README.md', 'README.pt-BR.md', 'LICENSE', 'THIRD_PARTY_
     Copy-Item -LiteralPath (Join-Path $projectRoot $document) -Destination $packageDirectory -Force
 }
 Copy-Item -LiteralPath (Join-Path $projectRoot 'docs') -Destination $packageDirectory -Recurse -Force
+Copy-Item -LiteralPath (Join-Path $projectRoot 'assets') -Destination $packageDirectory -Recurse -Force
 Copy-Item -LiteralPath (Join-Path $projectRoot 'third_party\nlohmann\LICENSE.MIT') -Destination (Join-Path $licensesDirectory 'nlohmann-json.LICENSE') -Force
 Copy-Item -LiteralPath (Join-Path $projectRoot 'third_party\Ultimate-ASI-Loader.LICENSE') -Destination $licensesDirectory -Force
 Get-ChildItem -LiteralPath (Join-Path $projectRoot 'third_party\toolchain') -File | ForEach-Object {
     Copy-Item -LiteralPath $_.FullName -Destination $licensesDirectory -Force
 }
-$archive = Join-Path $releaseDirectory 'SH2DiscordPresence-0.1.3-win64.zip'
+$archive = Join-Path $releaseDirectory 'SH2DiscordPresence-0.1.5-win64.zip'
 Compress-Archive -Path (Join-Path $packageDirectory '*') -DestinationPath $archive -Force
 $hash = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant()
 Set-Content -LiteralPath ($archive + '.sha256') -Value ($hash + '  ' + (Split-Path -Leaf $archive)) -Encoding ascii

@@ -4,5 +4,18 @@
   "poll_interval_seconds": 2,
   "discord_pipe": -1,
   "default_image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2124490/header.jpg",
-  "image_rules": []
+  "image_rules": [
+    { "contains": ["otherworld hospital"], "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2124490/header.jpg" },
+    { "contains": ["eastern south vale", "otherworld"], "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2124490/header.jpg" },
+    { "contains": ["western south vale", "nightfall"], "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2124490/header.jpg" },
+    { "contains": ["lakeview hotel", "otherworld"], "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2124490/header.jpg" },
+    { "contains": ["eastern south vale"], "image": "https://raw.githubusercontent.com/Lynn-Nova/Silent-Hill-2-DiscordRPC/main/assets/regions/eastern-south-vale.jpg" },
+    { "contains": ["wood side apartments"], "image": "https://raw.githubusercontent.com/Lynn-Nova/Silent-Hill-2-DiscordRPC/main/assets/regions/wood-side-apartments.jpg" },
+    { "contains": ["blue creek apartments"], "image": "https://raw.githubusercontent.com/Lynn-Nova/Silent-Hill-2-DiscordRPC/main/assets/regions/blue-creek-apartments.jpg" },
+    { "contains": ["brookhaven hospital"], "image": "https://raw.githubusercontent.com/Lynn-Nova/Silent-Hill-2-DiscordRPC/main/assets/regions/brookhaven-hospital.jpg" },
+    { "contains": ["toluca prison"], "image": "https://raw.githubusercontent.com/Lynn-Nova/Silent-Hill-2-DiscordRPC/main/assets/regions/toluca-prison.jpg" },
+    { "contains": ["labyrinth"], "image": "https://raw.githubusercontent.com/Lynn-Nova/Silent-Hill-2-DiscordRPC/main/assets/regions/labyrinth.webp" },
+    { "contains": ["lakeview hotel"], "image": "https://raw.githubusercontent.com/Lynn-Nova/Silent-Hill-2-DiscordRPC/main/assets/regions/lakeview-hotel.jpg" },
+    { "contains": ["road to silent hill"], "image": "https://raw.githubusercontent.com/Lynn-Nova/Silent-Hill-2-DiscordRPC/main/assets/regions/road-to-silent-hill.jpg" }
+  ]
 }

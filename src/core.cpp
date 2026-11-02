@@ -28,6 +28,10 @@ bool portuguese_text(const std::string& text) {
     return comparable.rfind(u8"está na zona:", 0) == 0 || comparable.rfind(u8"está se preparando", 0) == 0 || comparable.rfind("explorando ", 0) == 0 || comparable.rfind("a explorar ", 0) == 0 || comparable.rfind("jogando ", 0) == 0 || comparable.rfind("no menu", 0) == 0;
 }
 
+bool menu_activity(const std::string& comparable) {
+    return comparable.find("se preparando") != std::string::npos || comparable.find("main menu") != std::string::npos || comparable.find("preparing to") != std::string::npos || comparable.find("getting ready") != std::string::npos || comparable.rfind("no menu", 0) == 0;
+}
+
 std::string zone_name(const std::string& source, bool portuguese) {
     if (source.empty() || source.size() > 80) return {};
     std::string identifier;
@@ -48,15 +52,16 @@ std::string zone_name(const std::string& source, bool portuguese) {
         {"Western South Vale", "Oeste de South Vale", {"westernsouthvale", "westsouthvale", "westcity"}},
         {"Brookhaven Hospital", "Hospital Brookhaven", {"brookhavenhospital"}},
         {"Otherworld Hospital", "Hospital Brookhaven: Outro Mundo", {"otherworldhospital", "hospitalotherworld", "brookhavenhospitalotherworld", "otherworldbrookhavenhospital", "brookhavenhospitalow", "hospitalow"}},
-        {"Eastern South Vale: Otherworld", "Leste de South Vale: Outro Mundo", {"easternsouthvaleotherworld", "eastsouthvaleotherworld", "otherworldeasternsouthvale", "otherworldeastsouthvale", "easternsouthvaleow", "eastsouthvaleow", "eastcityotherworld", "otherworldeastcity", "eastcityow"}},
+        {"Eastern South Vale: Otherworld", "Leste de South Vale: Outro Mundo", {"easternsouthvaleotherworld", "eastsouthvaleotherworld", "otherworldeasternsouthvale", "otherworldeastsouthvale", "easternsouthvaleow", "eastsouthvaleow", "eastcityotherworld", "otherworldeastcity", "eastcityow", "nightcityow"}},
         {"Western South Vale: Nightfall", "Oeste de South Vale: Anoitecer", {"westernsouthvalenightfall", "westsouthvalenightfall", "nightfallwesternsouthvale", "nightfallwestsouthvale", "westcitynightfall"}},
         {"Toluca Prison", u8"Prisão Toluca", {"tolucaprison"}},
         {"Labyrinth", "Labirinto", {"labyrinth"}},
         {"Labyrinth: Rotten Area", u8"Labirinto: Área Apodrecida", {"labyrinthrottenarea", "labyrinthrotten", "rottenarealabyrinth", "rottenarea"}},
         {"Labyrinth: Desolate Area", u8"Labirinto: Área Desolada", {"labyrinthdesolatearea", "labyrinthdesolate", "desolatearealabyrinth", "desolatearea"}},
         {"Labyrinth: Ruined Area", u8"Labirinto: Área em Ruínas", {"labyrinthruinedarea", "labyrinthruined", "ruinedarealabyrinth", "ruinedarea"}},
-        {"Lakeview Hotel", "Hotel Lakeview", {"lakeviewhotel"}},
-        {"Lakeview Hotel: Otherworld", "Hotel Lakeview: Outro Mundo", {"lakeviewhotelotherworld", "otherworldlakeviewhotel", "lakeviewhotelow"}},
+        {"Lakeview Hotel", "Hotel Lakeview", {"lakeviewhotel", "hotelfw", "hotel"}},
+        {"Lakeview Hotel: Otherworld", "Hotel Lakeview: Outro Mundo", {"lakeviewhotelotherworld", "otherworldlakeviewhotel", "lakeviewhotelow", "hotelow", "hotelotherworld", "hoteldooutromundo"}},
+        {"Road To Silent Hill", "Estrada para Silent Hill", {"roadtosilenthill"}},
         {"Toluca Lake", "Lago Toluca", {"tolucalake"}},
         {"South Vale", "South Vale", {"southvale"}},
         {"Silent Hill Historical Society", u8"Sociedade Histórica de Silent Hill", {"historicalsociety", "silenthillhistoricalsociety"}},
@@ -105,8 +110,18 @@ std::string activity_details(const SteamStatus& status) {
     const std::string fallback = portuguese ? "Jogando SILENT HILL 2" : "Playing SILENT HILL 2";
     if (status.game_id != "2124490" || status.details.empty()) return fallback;
     const auto comparable = lowercase(status.details);
-    if (portuguese && portuguese_text(status.details)) return status.details;
-    const bool menu = comparable.find("se preparando") != std::string::npos || comparable.find("main menu") != std::string::npos || comparable.find("preparing to") != std::string::npos || comparable.find("getting ready") != std::string::npos;
+    if (portuguese && portuguese_text(status.details)) {
+        for (const auto* prefix : {u8"está na zona:", "explorando ", "a explorar "}) {
+            const std::string label(prefix);
+            if (comparable.rfind(label, 0) != 0) continue;
+            auto location_start = label.size();
+            while (location_start < status.details.size() && std::isspace(static_cast<unsigned char>(status.details[location_start]))) ++location_start;
+            const auto named_zone = zone_name(status.details.substr(location_start), true);
+            if (named_zone == "Hotel Lakeview" || named_zone == "Hotel Lakeview: Outro Mundo") return status.details.substr(0, location_start) + named_zone;
+        }
+        return status.details;
+    }
+    const bool menu = menu_activity(comparable);
     if (menu) return portuguese ? "No menu principal" : "Preparing to explore Silent Hill";
     const auto zone = zone_name(status.zone, portuguese);
     if (!zone.empty()) return std::string(portuguese ? "Explorando " : "Exploring ") + zone;
@@ -405,12 +420,15 @@ nlohmann::json make_activity(const Config& config, const SteamStatus& status, st
     if (has_details) {
         const auto comparable = lowercase(status.details);
         const auto translated = lowercase(details);
+        const auto region = menu_activity(comparable) ? std::string{} : lowercase(zone_name(status.zone, false));
         for (const auto& rule : config.image_rules) {
             if (std::all_of(rule.contains.begin(), rule.contains.end(), [&](const auto& term) {
                 return comparable.find(lowercase(term)) != std::string::npos;
             }) || std::all_of(rule.contains.begin(), rule.contains.end(), [&](const auto& term) {
                 return translated.find(lowercase(term)) != std::string::npos;
-            })) {
+            }) || (!region.empty() && std::all_of(rule.contains.begin(), rule.contains.end(), [&](const auto& term) {
+                return region.find(lowercase(term)) != std::string::npos;
+            }))) {
                 image = rule.image;
                 break;
             }
