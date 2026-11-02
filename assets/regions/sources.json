@@ -1,10 +1,50 @@
 {
   "copyright": "Konami Digital Entertainment. Game imagery is not covered by the mod's MIT license.",
-  "reviewed_on": "2026-11-01",
+  "reviewed_on": "2026-11-02",
   "selection": "Environment-only images, visually reviewed without visible characters, enemies or gameplay HUD. Not the original save-menu thumbnails.",
   "guidelines": "https://www.konami.com/games/silenthill/2r/guideline/jp/ja/",
   "image_base": "https://raw.githubusercontent.com/Lynn-Nova/Silent-Hill-2-DiscordRPC/main/assets/regions/",
   "images": [
+    {
+      "file": "brookhaven-hospital-otherworld.webp",
+      "kind": "concept_art",
+      "artist_credit": "Konrad Białowąs; original credits retained in the image.",
+      "source_page": "https://www.silenthillmemories.net/sh2_remake/art_en.htm",
+      "source_url": "https://www.silenthillmemories.net/sh2_remake/art/pics/environment_06_otherworld_hospital_07.webp",
+      "sha256": "2a11685fdad2dca98e14723322fc5e708aac63b9291c122d48ecd1e644ecab49"
+    },
+    {
+      "file": "eastern-south-vale-otherworld.jpg",
+      "kind": "concept_art",
+      "source_page": "https://www.silenthillmemories.net/sh2_remake/art_en.htm",
+      "source_url": "https://www.silenthillmemories.net/sh2_remake/art/pics/environment_07a_otherworld_south_vale_03.jpg",
+      "sha256": "73874d9a0339e72d6177e4b69a0bcb1cb039ccbf3bea9ffa9d7d3fc0667ab4db"
+    },
+    {
+      "file": "lakeview-hotel-otherworld.webp",
+      "kind": "concept_art",
+      "artist_credit": "Konrad Białowąs; original credits retained in the image.",
+      "source_page": "https://www.silenthillmemories.net/sh2_remake/art_en.htm",
+      "source_url": "https://www.silenthillmemories.net/sh2_remake/art/pics/environment_12_otherworld_hotel_01.webp",
+      "sha256": "b4d3b132bbcef6534a2f04c48b6b634a037d3c5653eaff6258239055f253d721"
+    },
+    {
+      "file": "western-south-vale.webp",
+      "kind": "concept_art",
+      "artist_credit": "Jakub Skop; original credits retained in the image.",
+      "source_page": "https://www.silenthillmemories.net/sh2_remake/art_en.htm",
+      "source_url": "https://www.silenthillmemories.net/sh2_remake/art/pics/environment_04d_silent_hill_street_01.webp",
+      "sha256": "c08261002cf61fcf4963b110bc38dbeb002e2e91f551c29de644c9646b5bdc28"
+    },
+    {
+      "file": "western-south-vale-nightfall.webp",
+      "kind": "concept_art",
+      "artist_credit": "Andreas Stavaas; original credits retained in the image.",
+      "region_note": "Historical Society underground room, representing the nighttime return to Western South Vale; not an outdoor night screenshot.",
+      "source_page": "https://www.silenthillmemories.net/sh2_remake/art_en.htm",
+      "source_url": "https://www.silenthillmemories.net/sh2_remake/art/pics/environment_08_silent_hill_historical_society_03.webp",
+      "sha256": "b7728b24afb3e95bbaa04a45839e34abbe6d6532a462ab114bec8033c67f276d"
+    },
     {
       "file": "eastern-south-vale.jpg",
       "kind": "screenshot",

@@ -23,11 +23,11 @@ The translation is built for this game's activity, not a general-purpose machine
 
 If no usable activity or location is available, the mod shows `Jogando SILENT HILL 2` for Portuguese or `Playing SILENT HILL 2` for other languages. An undetected language defaults to English. It doesn't keep an old location or send unknown localization tokens as place names. A newly applied language can take time to reach the saved profile and Steam activity.
 
-See the [region catalog](REGIONS.md) for the 15 supported names, their Portuguese labels and the distinction between name coverage and verified in-game detection. Nightfall, Otherworld and Labyrinth subareas have separate entries.
+See the [region catalog](REGIONS.md) for the twelve main regions, their Portuguese labels and the distinction between name coverage and verified in-game detection. Nightfall and Otherworld have separate entries.
 
 ## Custom artwork
 
-The supplied JSON has ready-made rules for [eight scenery-only regional images](../assets/regions/README.md): three screenshots and five official concept artworks, not the original save-menu thumbnails. The Labyrinth subareas share one image. Uncovered locations and menus use the Steam cover. Public image URLs refer to the project's `assets/regions` folder on GitHub, not local files; maintainers must publish those assets before distributing the configuration. Existing installations need the new `image_rules` as well as the updated plugin to enable this collection.
+The supplied JSON has ready-made rules for [thirteen scenery-only regional images](../assets/regions/README.md): three screenshots and ten official concept artworks, not the original save-menu thumbnails. Western South Vale and Nightfall have distinct images, as do the normal and Otherworld hospital, eastern town and hotel. Nightfall is represented by a Historical Society interior. Specific variants are matched before their base regions. Unknown locations and menus use the Steam cover. Public image URLs refer to the project's `assets/regions` folder on GitHub, not local files; maintainers must publish those assets before distributing the configuration. Existing installations need the new `image_rules` as well as the updated plugin to enable this collection.
 
 You can use public HTTPS image URLs, or upload assets to your own Discord application and use their keys. When using uploaded assets, `application_id` must match the application that owns them.
 

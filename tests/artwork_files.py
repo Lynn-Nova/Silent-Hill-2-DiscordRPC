@@ -11,9 +11,9 @@ manifest = json.loads((directory / "sources.json").read_text(encoding="utf-8"))
 settings = json.loads((project / "config" / "SH2DiscordPresence.json").read_text(encoding="utf-8"))
 image_base = manifest["image_base"]
 assert image_base == "https://raw.githubusercontent.com/Lynn-Nova/Silent-Hill-2-DiscordRPC/main/assets/regions/"
-assert len(manifest["images"]) == 8
+assert len(manifest["images"]) == 13
 assert sum(entry["kind"] == "screenshot" for entry in manifest["images"]) == 3
-assert sum(entry["kind"] == "concept_art" for entry in manifest["images"]) == 5
+assert sum(entry["kind"] == "concept_art" for entry in manifest["images"]) == 10
 files = set()
 for entry in manifest["images"]:
     filename = entry["file"]
@@ -45,4 +45,4 @@ for rule in settings["image_rules"]:
     referenced.add(filename)
 assert referenced == files
 assert files == {image.name for image in directory.iterdir() if image.suffix in {".jpg", ".webp"}}
-print(f"Artwork files: {len(files)} original images (3 screenshots, 5 concept artworks), checksums, sources and configured paths verified.")
+print(f"Artwork files: {len(files)} original images (3 screenshots, 10 concept artworks), checksums, sources and configured paths verified.")

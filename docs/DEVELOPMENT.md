@@ -11,7 +11,7 @@ To build on Windows, you'll need CMake 3.21+, the Microsoft C++ build tools and 
 ./scripts/package.ps1
 ```
 
-The build script compiles the plugin and runs CTest. The packaging script downloads Ultimate ASI Loader v9.7.4, checks its SHA-256 and creates `release/SH2DiscordPresence-0.1.5-win64.zip` with the documentation and licenses. Version 0.1.5 is a beta bug-fix update.
+The build script compiles the plugin and runs CTest. The packaging script downloads Ultimate ASI Loader v9.7.4, checks its SHA-256 and creates `release/SH2DiscordPresence-0.1.6-win64.zip` with the documentation and licenses. Version 0.1.6 is a beta artwork update.
 
 GitHub Actions follows the same workflow and uploads the ZIP as a build artifact. It doesn't push commits or publish a GitHub Release.
 
@@ -64,9 +64,9 @@ The module stays pinned for the host process's lifetime. `ShutdownASI` is availa
 
 ## Tests
 
-The core test receives the shipped configuration and checks default artwork across the localized region aliases. Image rules match original text, displayed text or the canonical English region derived from the active Steam `gamezone`; recognized menu activity suppresses stale-region matching. `tests/artwork_files.py` checks all eight original image files, source records, hashes and configured GitHub paths without network access. These checks do not prove that future GitHub URLs have already been published or that Discord displayed every image. Publish `assets/regions` with the source before creating the release; see the [artwork notes](../assets/regions/README.md).
+The core test receives the shipped configuration and checks default artwork across the localized region aliases, including distinct normal, Nightfall and Otherworld images. Image rules match original text, displayed text or the canonical English region derived from the active Steam `gamezone`; recognized menu activity suppresses stale-region matching. `tests/artwork_files.py` checks all thirteen original image files, source records, hashes and configured GitHub paths without network access. These checks do not prove that future GitHub URLs have already been published or that Discord displayed every image. Publish `assets/regions` with the source before creating the release; see the [artwork notes](../assets/regions/README.md).
 
-The [region catalog](REGIONS.md) includes 15 region names. `tests/region_catalog.hpp` supplies cases for every name, common spelling and separator variants, and explicit aliases. Tests check English output for English/French/Japanese game settings, Portuguese output, timer continuity, distinct Nightfall/Otherworld and Labyrinth areas, and specific artwork precedence. These fixtures do not establish what identifiers Steam actually sends in unvisited areas; only `BluecreekApartments` was captured from the live game.
+The [region catalog](REGIONS.md) lists twelve main regions. `tests/region_catalog.hpp` supplies cases for every listed name, common spelling and separator variants, and additional accepted aliases. Tests check English output for English/French/Japanese game settings, Portuguese output, timer continuity, distinct Nightfall/Otherworld variants, and specific artwork precedence. These fixtures do not establish what identifiers Steam actually sends in unvisited areas; only `BluecreekApartments` was captured from the live game.
 
 The mod displays `West City` as **Western South Vale** and `East City` as **Eastern South Vale**, including English activity text without a `gamezone` field. These name mappings are covered by automated tests, not a full in-game playthrough.
 

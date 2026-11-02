@@ -33,7 +33,7 @@ Copy-Item -LiteralPath (Join-Path $projectRoot 'third_party\Ultimate-ASI-Loader.
 Get-ChildItem -LiteralPath (Join-Path $projectRoot 'third_party\toolchain') -File | ForEach-Object {
     Copy-Item -LiteralPath $_.FullName -Destination $licensesDirectory -Force
 }
-$archive = Join-Path $releaseDirectory 'SH2DiscordPresence-0.1.5-win64.zip'
+$archive = Join-Path $releaseDirectory 'SH2DiscordPresence-0.1.6-win64.zip'
 Compress-Archive -Path (Join-Path $packageDirectory '*') -DestinationPath $archive -Force
 $hash = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant()
 Set-Content -LiteralPath ($archive + '.sha256') -Value ($hash + '  ' + (Split-Path -Leaf $archive)) -Encoding ascii

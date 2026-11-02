@@ -18,7 +18,7 @@ O mod lê a atividade local a cada dois segundos e usa o status e os identificad
 
 Você precisa do **Silent Hill 2 (2024) na Steam** e do **Discord para desktop**.
 
-1. Feche o jogo e baixe `SH2DiscordPresence-0.1.5-win64.zip` na seção **Releases** deste repositório. Escolha o ZIP do mod, não o download automático "Source code" do GitHub.
+1. Feche o jogo e baixe `SH2DiscordPresence-0.1.6-win64.zip` na seção **Releases** deste repositório. Escolha o ZIP do mod, não o download automático "Source code" do GitHub.
 2. Na Steam, abra **Silent Hill 2 → Propriedades → Arquivos instalados → Explorar**.
 3. Entre em `SHProto/Binaries/Win64`.
 4. Extraia o ZIP ali, ao lado de `SHProto-Win64-Shipping.exe`. Mantenha também os arquivos de licença que acompanham o pacote.
@@ -32,13 +32,13 @@ Você precisa do **Silent Hill 2 (2024) na Steam** e do **Discord para desktop**
 - **O idioma do RPC é automático.** Se o jogo estiver em português, a presença fica em português. Em inglês ou qualquer outro idioma, o mod traduz a atividade para inglês. A tradução funciona localmente, usando o status e os identificadores de região do jogo, sem serviço externo nem chave de API.
 - **O contador é desta sessão.** Menus e pausas entram na contagem. Não é o tempo do save nem o total de horas da Steam.
 - **Seu perfil da Steam não precisa ser público.** A leitura é local e não exige senha, chave de API ou token do Discord.
-- **O pacote inclui imagens de regiões.** São oito imagens só dos cenários, incluindo a estrada inicial: três capturas e cinco artes conceituais oficiais, sem personagens ou inimigos visíveis. Não são as miniaturas originais do menu de saves. As subáreas do Labirinto compartilham uma imagem. Menus e locais sem arte própria continuam com a capa. A [coleção de imagens e fontes](assets/regions/README.md), em inglês, detalha a cobertura e a hospedagem.
+- **O pacote inclui imagens de regiões.** São treze imagens só dos cenários, cobrindo as regiões listadas e a estrada inicial: três capturas e dez artes conceituais oficiais, sem personagens ou inimigos visíveis. As regiões normais, Anoitecer e as versões do Outro Mundo têm imagens distintas. Anoitecer é representado por um interior da Sociedade Histórica. Não são as miniaturas originais do menu de saves. Menus e locais desconhecidos continuam com a capa. A [coleção de imagens e fontes](assets/regions/README.md), em inglês, detalha a cobertura e a hospedagem.
 
 O mod não altera saves nem executáveis do jogo e encerra junto com ele. Não precisa de UE4SS nem de um programa separado rodando em segundo plano.
 
 ## Regiões
 
-O [catálogo de regiões](docs/REGIONS.md), em inglês, inclui 15 regiões, com Anoitecer, Outro Mundo e as três subáreas do Labirinto separados. O catálogo tem testes automatizados, mas nem todas essas áreas foram visitadas no jogo. A detecção continua dependendo das informações de região enviadas à Steam.
+O [catálogo de regiões](docs/REGIONS.md), em inglês, lista 12 regiões, com Anoitecer e os locais do Outro Mundo separados. O catálogo tem testes automatizados, mas nem todas essas áreas foram visitadas no jogo. A detecção continua dependendo das informações de região enviadas à Steam.
 
 ## Configurações
 
@@ -73,7 +73,7 @@ Os requisitos completos, testes e detalhes internos estão nas [notas de desenvo
 
 ## Sobre esta versão
 
-A **v0.1.5 é uma atualização beta**. Ela troca `Hotel FW` por **Lakeview Hotel**, mantém o hotel do Outro Mundo separado e corrige o espaçamento de **Road To Silent Hill**. Em português, o hotel passa a aparecer como **Hotel Lakeview**, mantendo **Outro Mundo** na versão alterada. As correções de Eastern/Western South Vale e Night City OW também estão incluídas. Esses mapeamentos têm testes automatizados de regressão. Durante o desenvolvimento, a integração do menu e de Blue Creek foi testada com a build Steam **17080069**. A Zona Oeste da Cidade também foi confirmada com o texto de atividade em português. O catálogo tem testes automatizados para os 15 nomes, não uma verificação de todas as áreas dentro do jogo. Outras regiões, transições e combinações com mods ainda precisam de mais testes.
+A **v0.1.6 é uma atualização beta**. Ela adiciona as imagens que faltavam em Western South Vale, Anoitecer, Hospital do Outro Mundo, Eastern South Vale: Otherworld e Lakeview Hotel: Otherworld. Cada versão usa sua própria imagem em português e inglês. As correções anteriores dos nomes continuam incluídas. Atualize também o JSON para usar as novas imagens. A seleção tem testes automatizados; as novas imagens ainda não foram conferidas em uma sessão do jogo. Os testes anteriores no menu, em Blue Creek e na Zona Oeste usaram a build Steam **17080069**. Outras regiões, transições e combinações com mods ainda precisam de mais testes.
 
 ## Créditos
 

@@ -48,7 +48,7 @@ void run_presence(HANDLE stop) {
     config_path.replace_extension(L".json");
     auto log_path = module_path();
     log_path.replace_extension(L".log");
-    log_message(log_path, "Native ASI plugin 0.1.5 started inside the game.");
+    log_message(log_path, "Native ASI plugin 0.1.6 started inside the game.");
     const auto started = sh2presence::process_start_time();
     sh2presence::DiscordClient discord(stop);
     nlohmann::json previous_activity;

@@ -18,7 +18,7 @@ The mod reads the game's local Steam presence every two seconds and uses its act
 
 You'll need **Silent Hill 2 (2024) on Steam** and the **Discord desktop app**.
 
-1. Close the game and download `SH2DiscordPresence-0.1.5-win64.zip` from this repository's **Releases** section. Choose the mod ZIP, not GitHub's automatic "Source code" download.
+1. Close the game and download `SH2DiscordPresence-0.1.6-win64.zip` from this repository's **Releases** section. Choose the mod ZIP, not GitHub's automatic "Source code" download.
 2. In Steam, open **Silent Hill 2 → Properties → Installed Files → Browse**.
 3. Go to `SHProto/Binaries/Win64`.
 4. Extract the ZIP there, next to `SHProto-Win64-Shipping.exe`. Keep the included license files too.
@@ -32,13 +32,13 @@ You'll need **Silent Hill 2 (2024) on Steam** and the **Discord desktop app**.
 - **The RPC language is automatic.** Play in Portuguese and your presence stays in Portuguese. For English or any other game language, the mod translates the activity into English. This works offline using the game's activity and region identifiers, with no translation service or API key.
 - **The timer is for this session.** It includes menus and pauses, not your save's playtime or total Steam hours.
 - **You don't need a public Steam profile.** The mod reads locally. No Steam API key, password or Discord token is needed.
-- **Regional artwork is included.** Eight scenery-only images cover selected locations, including the approach road: three screenshots and five official concept artworks, without visible characters or enemies. They are not the original save-menu thumbnails. Labyrinth subareas share one image. Menus and locations without dedicated artwork keep the cover. See the [artwork collection and sources](assets/regions/README.md) for coverage and hosting details.
+- **Regional artwork is included.** Thirteen scenery-only images cover the listed regions and the approach road: three screenshots and ten official concept artworks, without visible characters or enemies. Normal areas, Nightfall and Otherworld variants have separate images. Nightfall is represented by a Historical Society interior. These are not the original save-menu thumbnails. Menus and unknown locations keep the cover. See the [artwork collection and sources](assets/regions/README.md) for coverage and hosting details.
 
 The mod doesn't edit saves or game executables, and it stops with the game. It doesn't need UE4SS or a separate background program.
 
 ## Regions
 
-The [region catalog](docs/REGIONS.md) includes 15 regions, with separate entries for Nightfall, Otherworld locations and the three Labyrinth subareas. The catalog has automated tests, but not every area has been visited in-game.
+The [region catalog](docs/REGIONS.md) lists 12 regions, with separate entries for Nightfall and Otherworld locations. The catalog has automated tests, but not every area has been visited in-game.
 
 ## Settings
 
@@ -73,7 +73,7 @@ The [development notes](docs/DEVELOPMENT.md) cover the full requirements, tests 
 
 ## About this release
 
-**v0.1.5 is a beta update.** It replaces `Hotel FW` with **Lakeview Hotel**, keeps the Otherworld hotel separate and fixes the spacing in **Road To Silent Hill**. Portuguese hotel activity now uses **Hotel Lakeview**, with **Outro Mundo** retained for the altered hotel. The Eastern/Western South Vale and Night City OW name corrections are also included. These mappings have automated regression tests. During development, the menu and Blue Creek integration were tested with Steam build **17080069**. The western city area was also confirmed with Portuguese activity text. The catalog has automated tests for all 15 names, not an in-game check of every area. Other regions, transitions and combinations with mods still need more testing.
+**v0.1.6 is a beta update.** It adds the missing artwork for Western South Vale, Nightfall, Otherworld Hospital, Eastern South Vale: Otherworld and Lakeview Hotel: Otherworld. Each variant keeps its own image in Portuguese and English. The previous location-name fixes are included. Update the JSON as well as the plugin to use the new images. Automated tests cover the selection rules; the new images have not been checked in a live game session. Earlier menu, Blue Creek and western city checks used Steam build **17080069**. Other regions, transitions and combinations with mods still need more testing.
 
 ## Credits
 

@@ -146,13 +146,18 @@ int main(int argument_count, char** arguments) {
                 {"Eastern South Vale", "eastern-south-vale.jpg"},
                 {"Wood Side Apartments", "wood-side-apartments.jpg"},
                 {"Blue Creek Apartments", "blue-creek-apartments.jpg"},
+                {"Western South Vale", "western-south-vale.webp"},
+                {"Western South Vale: Nightfall", "western-south-vale-nightfall.webp"},
                 {"Brookhaven Hospital", "brookhaven-hospital.jpg"},
+                {"Otherworld Hospital", "brookhaven-hospital-otherworld.webp"},
+                {"Eastern South Vale: Otherworld", "eastern-south-vale-otherworld.jpg"},
                 {"Toluca Prison", "toluca-prison.jpg"},
                 {"Labyrinth", "labyrinth.webp"},
                 {"Labyrinth: Rotten Area", "labyrinth.webp"},
                 {"Labyrinth: Desolate Area", "labyrinth.webp"},
                 {"Labyrinth: Ruined Area", "labyrinth.webp"},
-                {"Lakeview Hotel", "lakeview-hotel.jpg"}
+                {"Lakeview Hotel", "lakeview-hotel.jpg"},
+                {"Lakeview Hotel: Otherworld", "lakeview-hotel-otherworld.webp"}
             };
             const std::string image_base = "https://raw.githubusercontent.com/Lynn-Nova/Silent-Hill-2-DiscordRPC/main/assets/regions/";
             std::size_t artwork_cases = 0;
@@ -178,7 +183,16 @@ int main(int argument_count, char** arguments) {
                 expect(make_activity(artwork_config, {"2124490", u8"está na zona:Estrada para Silent Hill", language, "RoadtoSilentHill"}, 123).at("assets").at("large_image") == image_base + "road-to-silent-hill.jpg", "Approach road image works independently of the output language");
             }
             expect(make_activity(artwork_config, {"2124490", "Exploring Hotel FW", "en"}, 123).at("assets").at("large_image") == image_base + "lakeview-hotel.jpg", "English activity text can select artwork without a gamezone field");
-            expect(make_activity(artwork_config, {"2124490", "Exploring Hotel OW", "en"}, 123).at("assets").at("large_image") == artwork_config.default_image, "An unsupported hotel variant must not borrow the other variant's image");
+            for (const auto* language : {"en", "pt-BR"}) {
+                const auto western = make_activity(artwork_config, {"2124490", "Exploring West City", language, "WestCity"}, 123);
+                const auto nightfall = make_activity(artwork_config, {"2124490", "Exploring West City Nightfall", language, "WestCityNightfall"}, 123);
+                expect(western.at("assets").at("large_image") == image_base + "western-south-vale.webp", "Western South Vale has dedicated artwork");
+                expect(nightfall.at("assets").at("large_image") == image_base + "western-south-vale-nightfall.webp", "Nightfall artwork takes precedence over the base Western South Vale rule");
+                expect(western.at("assets").at("large_image") != nightfall.at("assets").at("large_image"), "Western South Vale and Nightfall keep distinct images");
+            }
+            expect(make_activity(artwork_config, {"2124490", "Exploring West City Nightfall", "en"}, 123).at("assets").at("large_image") == image_base + "western-south-vale-nightfall.webp", "English Nightfall activity selects artwork without a gamezone field");
+            expect(make_activity(artwork_config, {"2124490", "Exploring Hotel OW", "en"}, 123).at("assets").at("large_image") == image_base + "lakeview-hotel-otherworld.webp", "The Otherworld hotel keeps its own image without a gamezone field");
+            expect(make_activity(artwork_config, {"2124490", "Exploring Night City OW", "en"}, 123).at("assets").at("large_image") == image_base + "eastern-south-vale-otherworld.jpg", "Night City OW uses Eastern Otherworld artwork, not Western Nightfall");
             expect(make_activity(artwork_config, {"2124490", "Localized activity", "en", "UnknownRegion"}, 123).at("assets").at("large_image") == artwork_config.default_image, "Unknown regions use the cover");
             expect(make_activity(artwork_config, {"2124490", "", "en", "BluecreekApartments"}, 123).at("assets").at("large_image") == artwork_config.default_image, "Missing activity must clear region artwork");
             expect(make_activity(artwork_config, {"123", "Exploring Blue Creek Apartments", "en", "BluecreekApartments"}, 123).at("assets").at("large_image") == artwork_config.default_image, "Other games cannot select region artwork");

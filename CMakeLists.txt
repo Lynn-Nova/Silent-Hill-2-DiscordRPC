@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
-project(SilentHill2DiscordPresence VERSION 0.1.5 LANGUAGES CXX)
+project(SilentHill2DiscordPresence VERSION 0.1.6 LANGUAGES CXX)
 
 if(NOT WIN32 OR NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
     message(FATAL_ERROR "This mod requires Windows x64.")
